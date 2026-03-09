@@ -1,4 +1,4 @@
-
+from weapon_classes import *
 
 def attack_boost(dmg, lvl):
     if lvl == 1:
@@ -63,12 +63,34 @@ def critical_draw(aff, lvl):
         raise Exception("Invalid level") 
     
 def handicraft(shrp, lvl):
-    if lvl > 5:
+    if lvl > 5 or lvl <= 0:
         raise Exception("Invalid level")
     return shrp + (lvl * 10)
 
-def burst(wpn, dmg, lvl): # going to come back to this once I have finalised the weapon classes
-    pass
+def burst(type, dmg, lvl): 
+    if type == WeaponType.GREAT_SWORD or type == WeaponType.HUNTING_HORN:
+        if lvl > 5 or lvl <= 0:
+            raise Exception("Invalid level")
+        return dmg + (2 * lvl)
+    
+    elif type == WeaponType.BOW or type == WeaponType.HEAVY_BOWGUN or type == WeaponType.LIGHT_BOWGUN:
+        if lvl > 5 or lvl <= 0:
+            raise Exception("Invalid level")
+        return dmg + lvl
+            
+    else:
+        match lvl:
+            case 1:
+                return dmg + 8
+            case 2:
+                return dmg + 10
+            case 3:
+                return dmg + 12
+            case 4:
+                return dmg + 15
+            case 5:
+                return dmg + 18
+            
 
 def punishing_draw(dmg, lvl): # make a sidenote for draw attacks
     if lvl == 1:
@@ -80,5 +102,35 @@ def punishing_draw(dmg, lvl): # make a sidenote for draw attacks
     else:
         raise Exception("Invalid level")
     
-def slicked_blade(): #gonna have to figure this one out
-    pass
+def slicked_blade(aff, lvl): #bool checks for if bubbleblight is possible, although could also just fight a mizu so it should always be true. 
+    if lvl == 1:
+        return aff + 7
+    elif lvl == 2:
+        return aff + 14
+    elif lvl == 3:
+        return aff + 21
+    else:
+        raise Exception("Invalid level")
+
+def power_stone(dmg):
+    return dmg + 30
+
+def darkside(dmg):
+    return dmg + 22
+
+def synergy(aff, bool): #bool is only true if resonance is lvl 2
+    if bool:
+        return aff + 25
+    else:
+        return aff + 15
+    
+def omega_resonance(dmg, aff, lvl):
+    if lvl == 1:
+        return (dmg+10, aff+20)
+    elif lvl == 2:
+        return (dmg+20, aff+40)
+    else:
+        raise Exception("Invalid level")
+
+def grillmaster(aff):
+    return aff + 10

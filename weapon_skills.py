@@ -52,7 +52,7 @@ def critical_eye(aff, lvl):
     else:
         raise Exception("Invalid level")
 
-def critical_draw(aff, lvl):
+def critical_draw(aff, lvl): # On the sidenote for draw attacks
     if lvl == 1:
         return aff + 50
     elif lvl == 2:
@@ -67,30 +67,6 @@ def handicraft(shrp, lvl):
         raise Exception("Invalid level")
     return shrp + (lvl * 10)
 
-def burst(type, dmg, lvl): 
-    if type == WeaponType.GREAT_SWORD or type == WeaponType.HUNTING_HORN:
-        if lvl > 5 or lvl <= 0:
-            raise Exception("Invalid level")
-        return dmg + (2 * lvl)
-    
-    elif type == WeaponType.BOW or type == WeaponType.HEAVY_BOWGUN or type == WeaponType.LIGHT_BOWGUN:
-        if lvl > 5 or lvl <= 0:
-            raise Exception("Invalid level")
-        return dmg + lvl
-            
-    else:
-        match lvl:
-            case 1:
-                return dmg + 8
-            case 2:
-                return dmg + 10
-            case 3:
-                return dmg + 12
-            case 4:
-                return dmg + 15
-            case 5:
-                return dmg + 18
-            
 
 def punishing_draw(dmg, lvl): # make a sidenote for draw attacks
     if lvl == 1:
@@ -124,13 +100,36 @@ def synergy(aff, bool): #bool is only true if resonance is lvl 2
     else:
         return aff + 15
     
-def omega_resonance(dmg, aff, lvl):
+def omega_resonance(dmg, aff, lvl): # arr[0] is dmg, arr[1] is affinity
     if lvl == 1:
-        return (dmg+10, aff+20)
+        return [dmg+10, aff+20]
     elif lvl == 2:
-        return (dmg+20, aff+40)
+        return [dmg+20, aff+40]
     else:
         raise Exception("Invalid level")
 
 def grillmaster(aff):
     return aff + 10
+
+def bludgeoner(dmg, lvl):
+    if lvl == 1:
+        return dmg * 1.05
+    elif lvl == 2:
+        return dmg * 1.1
+    elif lvl == 3:
+        return dmg * 1.1
+    else:
+        raise Exception("Invalid level")
+    
+def ambush(dmg, lvl): #Can also get its own catergory and link in with draw attack scaling
+    if lvl < 1 or lvl > 3:
+        raise Exception("Invalid level")
+    return dmg + (dmg * 0.05 * lvl)
+
+def antivirus(aff, lvl): #Will need to check that gore magalas tyranny is up to level two for this to proc
+    if lvl == 1:
+        return aff + 3
+    if lvl == 2:
+        return aff + 6
+    if lvl == 3:
+        return aff + 15

@@ -100,13 +100,6 @@ def synergy(aff, bool): #bool is only true if resonance is lvl 2
     else:
         return aff + 15
     
-def omega_resonance(dmg, aff, lvl): # arr[0] is dmg, arr[1] is affinity
-    if lvl == 1:
-        return [dmg+10, aff+20]
-    elif lvl == 2:
-        return [dmg+20, aff+40]
-    else:
-        raise Exception("Invalid level")
 
 def grillmaster(aff):
     return aff + 10
@@ -132,4 +125,4 @@ def antivirus(aff, lvl): #Will need to check that gore magalas tyranny is up to 
     if lvl == 2:
         return aff + 6
     if lvl == 3:
-        return aff + 15
+        return aff + 10

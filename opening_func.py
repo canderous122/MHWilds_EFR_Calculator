@@ -16,21 +16,21 @@ def opening():
 
     i = 1
     while i == 1:    
-        w_type = input("So to begin, what type of weapon are you using?  ")
+        w_type = input("So to begin, what type of weapon are you using?  ").strip()
 
         clear()
         print("Now I need the attack power of the weapon, this is the stock value before any the type multiplier is applied or before any initial damage increase skills are applied.")
         print("Essentially how the number for the weapon appears in your equipment box.")
         print()
-        dmg = input("Hopefully that made sense, so what is the attack power of your weapon?  ")
+        dmg = input("Hopefully that made sense, so what is the attack power of your weapon?  ").strip()
 
         clear()
         print("Now, I need the affinity of your weapon, again before any additions by any skills, such as Critical Eye or Maximum Might.")
         print()
-        aff = input("What is the affinity of your weapon?  ")
+        aff = input("What is the affinity of your weapon?  ").strip()
 
         clear()
-        shrp = input("Finally, I just need the colour sharpness of your weapon:  ")
+        shrp = input("Finally, I just need the colour sharpness of your weapon:  ").strip()
 
         clear()
         print("Thank you for completing that.")
@@ -38,9 +38,9 @@ def opening():
         print(f"Now, just to clarify that we're on the same page, you're using a {w_type} with attack power {dmg}, with {aff}% affinity and {shrp} sharpness?")
         ans = input("Is this correct? (y/n)  ")
         
-        if ans == "y".lower():
+        if ans.lower().strip() == "y":
             return w_type, dmg, aff, shrp
-        if ans == "n".lower():
+        if ans.lower().strip() == "n":
             clear()
             continue
         else:

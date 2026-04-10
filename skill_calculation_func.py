@@ -22,12 +22,12 @@ def calculation(w_type, dmg, aff):
     player_skills = {}
     print("")
     print("Input the skill below. You can type 'stop' once you're done or 'list' to list the skills I'm counting for this calculation. Additionally, you can type in 'mine' to view the skills you've currently put down. Type 'reset' to reset the list")
+    print("")
 
     # skill list config loop
     j = 1
     while j == 1:
-        print("")
-        input_skill = input("Input here:  ")
+        input_skill = input("Input here:  ").lstrip().rstrip()
 
         if input_skill.lower() == 'stop':
             clear()
@@ -55,7 +55,7 @@ def calculation(w_type, dmg, aff):
 
         else:
             clear()
-            skill_level = int(input("And the level of that skill please:  "))
+            skill_level = int(input("And the level of that skill please:  ")).lstrip().rstrip()
             if skill_level > 5:
                 clear()
                 print("Ah, that level is bigger than 5. This aint World ya know, non of that here (yet).")

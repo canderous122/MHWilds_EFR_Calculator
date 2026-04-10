@@ -34,17 +34,17 @@ def counterstrike(dmg, lvl):
     else:
         raise Exception("Invalid level")
     
-def weakness_exploit(aff, lvl): #Output is an array, arr[0] is on weak points, arr[1] is on wounds
+def weakness_exploit(aff, lvl): 
     if lvl == 1:
-        return [aff + 5, aff + 8]
+        return aff + 5
     elif lvl == 2:
-        return [aff + 10, aff + 15]
+        return aff + 10
     elif lvl == 3:
-        return [aff + 15, aff + 25]
+        return aff + 15
     elif lvl == 4:
-        return [aff + 20, aff + 35]
+        return aff + 20
     elif lvl == 5:
-        return [aff + 30, aff + 50]
+        return aff + 30
     else:
         raise Exception("Invalid level")
     
@@ -53,17 +53,17 @@ def maximum_might(aff, lvl):
         raise Exception("Invalid level")
     return aff + (10 * lvl)
 
-def agitator(dmg, aff, lvl): #arr[0] is dmg, arr[1] is affinity
+def agitator(dmg, aff, lvl): 
     if lvl == 1:
-        return [dmg + 4, aff + 3]
+        return dmg + 4, aff + 3
     if lvl == 2:
-        return [dmg + 8, aff + 5]
+        return dmg + 8, aff + 5
     if lvl == 3:
-        return [dmg + 12, aff + 7]
+        return dmg + 12, aff + 7
     if lvl == 4:
-        return [dmg + 16, aff + 10]
+        return dmg + 16, aff + 10
     if lvl == 5:
-        return [dmg + 20, aff + 15]
+        return dmg + 20, aff + 15
 
 
 def latent_power(aff, lvl):

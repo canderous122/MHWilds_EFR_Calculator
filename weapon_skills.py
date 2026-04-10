@@ -95,7 +95,7 @@ def darkside(dmg):
     return dmg + 22
 
 def synergy(aff, bool): #bool is only true if resonance is lvl 2
-    if bool:
+    if bool == True:
         return aff + 25
     else:
         return aff + 15

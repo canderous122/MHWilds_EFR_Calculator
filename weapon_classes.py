@@ -48,18 +48,49 @@ def weapon_type_id(x):
         case WeaponType.HEAVY_BOWGUN:
             return "Heavy Bowgun"
 
+def weapon_type_id_inverse(x):
+    match x:
+        case "great sword":
+            return WeaponType.GREAT_SWORD 
+        case "long sword":
+            return WeaponType.LONG_SWORD 
+        case "sword and sheild":
+            return WeaponType.SWORD_AND_SHEILD
+        case "dual blades":
+            return WeaponType.DUAL_BLADES
+        case "hammer":
+            return WeaponType.HAMMER
+        case "hunting horn":
+            return WeaponType.HUNTING_HORN
+        case "lance":
+            return WeaponType.LANCE
+        case "gunlance":
+            return WeaponType.GUNLANCE
+        case "switch axe":
+            return WeaponType.SWITCH_AXE
+        case "charge blade":
+            return WeaponType.CHARGE_BLADE
+        case "insect glaive":
+            return WeaponType.INSECT_GLAIVE
+        case "bow":
+            return WeaponType.BOW
+        case "light bowgun":
+            return WeaponType.LIGHT_BOWGUN
+        case "heavy bowgun":
+            return WeaponType.HEAVY_BOWGUN
 
 
 
 class Weapon:
-    def __init__(self, name, type, atk_pwr, aff, rarity,elem=0, skills=[]):
+    def __init__(self, name, type, atk_pwr, aff, shrp, rarity,elem=0):
         self.name = name
         self.type = type
         self.atk_pwr = atk_pwr
         self.aff = aff
+        self.shrp = shrp
         self.rarity = rarity
         self.elem = elem
-        self.skills = skills
+        
         
 
     def repr(self):

@@ -9,4 +9,6 @@ If you're on Windows, you can run this by doing `run.bat` in your terminal.
 
 On MacOS/Linux, you can do `./run.sh`
 
+Happy to recieve feedback, and may make additions such as saved configs and a database in the future.
+
 Enjoy, and Happy Hunting, from one hunter to another!
